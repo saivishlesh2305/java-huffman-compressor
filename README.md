@@ -60,3 +60,15 @@ Compile the Java files:
 
 ```bash
 javac HuffmanCompressor.java HuffmanServer.java
+
+## 🖥️ Project Interface
+
+The project provides a simple web-based interface for selecting input and output files and performing compression or decompression.
+
+![Huffman Compressor Interface](interface.png)
+
+## 🧪 Compression Test
+
+A repetitive text file was used to test the Huffman compression process.
+
+![Compression Test File](test-file.png)
