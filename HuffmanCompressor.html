@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huffman Compressor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fd021b 0%, #3c0b6d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(60, 10, 114, 0.875);
+            width: 100%;
+            max-width: 900px;
+            overflow: hidden;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section {
+            margin-bottom: 35px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2f06aabe;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #99101099 0%, #764ba2 100%);
+            border-radius: 2px;
+            margin-right: 12px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        .column {
+            background: rgba(211, 208, 208, 0.196);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .column h3 {
+            color: #5b00b5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: #7124be;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        .input-group input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            border-color:  #936bbb7d;
+            font-size: 13px;
+            font-family: 'Courier New', monospace;
+            transition: border-color 0.3s ease;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .btn {
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 180px;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        .btn-compress {
+            background: linear-gradient(135deg, #99101099 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-decompress {
+            background: linear-gradient(135deg, #99101099 0%, #764ba2 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="section">
+                <div class="section-title">File Selection</div>
+                    <form id="huffmanForm">
+                        <div class="two-column">
+                             <div class="column">
+                                <h3>Input Path</h3>
+                                <div class="input-group"></div>
+                                    <label>Enter file path:</label>
+                                    <input type="text" id="inputPath" name="inputPath" placeholder="e.g., myfile.txt" required>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <h3>Output Path</h3>
+                                <div class="input-group">
+                                    <label>Enter output path:</label>
+                                    <input type="text" id="outputPath" name="outputPath" placeholder="e.g., myfile.compressed" required>
+                                </div>
+                            </div>
+                        </div>                    
+            </div>
+            <div class="section">
+                <div class="section-title">Actions</div>
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-compress" formaction="/compress" formmethod="post">
+                            Compress File
+                        </button>
+                        <button type="submit" class="btn btn-decompress" formaction="/decompress" formmethod="post">
+                            Decompress File
+                        </button>                        
+                    </div>
+                </div>
+            </form>
+        </div>
+</body>
+</html>
